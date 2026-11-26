@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Information System</h1>
+    <div class="nav-links">
+      <a href="create.html">Add New Student</a>
+      <button type="button" id="resetBtn">Reset Sample Data</button>
+    </div>
+    <div id="tableArea"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script>
+    const records = getRecords().slice().reverse();
+    const area = document.getElementById("tableArea");
+
+    if (!records.length) {
+      area.innerHTML = '<p class="muted">No records found.</p>';
+    } else {
+      area.innerHTML = `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Student Number</th><th>Full Name</th><th>Email</th><th>Course</th><th>Year Level</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${records.map(r => `
+                <tr>
+                  <td>${r.id}</td><td></td><td></td><td></td><td></td><td>${r.year_level}</td>
+                  <td>
+                    <a href="view.html?id=${r.id}">View</a>
+                    <a href="edit.html?id=${r.id}">Edit</a>
+                    <a href="delete.html?id=${r.id}">Delete</a>
+                  </td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+      const trs = area.querySelectorAll("tbody tr");
+      records.forEach((r, i) => {
+        trs[i].children[1].textContent = r.student_number;
+        trs[i].children[2].textContent = r.full_name;
+        trs[i].children[3].textContent = r.email;
+        trs[i].children[4].textContent = r.course;
+      });
+    }
+
+    document.getElementById("resetBtn").addEventListener("click", () => { resetSampleData(); location.reload(); });
+  </script>
+</body>
+</html>

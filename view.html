@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Details</h1>
+    <div class="nav-links"><a href="index.html">Back</a></div>
+    <div id="detailArea"></div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script>
+    const id = Number(new URLSearchParams(location.search).get("id"));
+    const r = Number.isInteger(id) && id > 0 ? getRecordById(id) : null;
+    const area = document.getElementById("detailArea");
+
+    if (!r) {
+      area.innerHTML = '<p class="muted">Record not found.</p>';
+    } else {
+      area.innerHTML = `
+        <div class="detail-card">
+          <p><strong>ID:</strong> ${r.id}</p>
+          <p><strong>Student Number:</strong> <span id="v1"></span></p>
+          <p><strong>Full Name:</strong> <span id="v2"></span></p>
+          <p><strong>Email:</strong> <span id="v3"></span></p>
+          <p><strong>Course:</strong> <span id="v4"></span></p>
+          <p><strong>Year Level:</strong> ${r.year_level}</p>
+        </div>
+      `;
+      document.getElementById("v1").textContent = r.student_number;
+      document.getElementById("v2").textContent = r.full_name;
+      document.getElementById("v3").textContent = r.email;
+      document.getElementById("v4").textContent = r.course;
+    }
+  </script>
+</body>
+</html>

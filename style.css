@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #09090b;
+  color: #f4f4f5;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #141417;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+h1 {
+  color: #fef08a;
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #eab308;
+  padding-bottom: 8px;
+}
+
+.nav-links {
+  margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+a, button {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid #eab308;
+}
+
+a {
+  background: #1f1f24;
+  color: #fef08a;
+}
+
+a:hover {
+  background: #eab308;
+  color: #09090b;
+}
+
+button {
+  background: #eab308;
+  color: #09090b;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #fef08a;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #0f0f12;
+}
+
+th, td {
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  padding: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #1d1a0d;
+  color: #fef08a;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  color: #fef08a;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  background: #09090b;
+  color: #f4f4f5;
+  font-size: 0.95rem;
+}
+
+.error-box {
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid #ef4444;
+  color: #fecaca;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.error-box ul {
+  padding-left: 18px;
+}
+
+.detail-card {
+  background: #0f0f12;
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.detail-card p {
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: #a1a1aa;
+  margin-top: 10px;
+}
